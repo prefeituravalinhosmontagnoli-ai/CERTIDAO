@@ -619,7 +619,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- INITIAL SETUP ---
     const setCurrentDate = () => {
-        document.getElementById('local-data').value = 'Valinhos, 15 de agosto de 2025';
+        const today = new Date();
+        const day = today.getDate();
+        const year = today.getFullYear();
+        const monthNames = [
+            'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
+            'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
+        ];
+        const monthName = monthNames[today.getMonth()];
+        
+        const formattedDate = `Valinhos, ${day} de ${monthName} de ${year}`;
+        document.getElementById('local-data').value = formattedDate;
     };
 
     addCnaeField(); 
